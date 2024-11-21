@@ -24,7 +24,7 @@ func main() {
 	defer c.Close()
 
 	listPodsWorklfowOptions := client.StartWorkflowOptions{
-		ID:        "listpods-workflow",
+		ID:        "listpods",
 		TaskQueue: workflow.K8sTaskQueue,
 	}
 
@@ -41,7 +41,7 @@ func main() {
 		logger.Fatal("unable to get Workflow result", zap.Error(err))
 	}
 
-	logger.Info("listpod-result", zap.String("WorkflowID", lw.GetID()), zap.String("runID", lw.GetRunID()))
+	logger.Info("listpods-result", zap.String("WorkflowID", lw.GetID()), zap.String("runID", lw.GetRunID()))
 	logger.Info("pods", zap.Strings("", listPodsResult))
 
 }
