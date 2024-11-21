@@ -27,9 +27,17 @@ Using temporal and client-go to interact with clusters.
 
 # How to run
 
-- start local temporal
+- start local temporal server
 
     `temporal server start-dev`
+
+    - with docker-compose
+    
+        ```
+            git clone https://github.com/temporalio/docker-compose.git
+            cd  docker-compose
+            docker-compose up
+        ```
 
 - start workers
 
