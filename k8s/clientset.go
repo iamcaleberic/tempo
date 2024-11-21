@@ -32,12 +32,14 @@ func CreateClientSet(ctx context.Context) (*kubernetes.Clientset, error) {
 	config, err := clientcmd.BuildConfigFromFlags("", *kubeconfig)
 	if err != nil {
 		logger.Error("failed to build client cmd", zap.Error(err))
+		return &kubernetes.Clientset{}, err
 	}
 
 	// create the clientSet
 	clientSet, err := kubernetes.NewForConfig(config)
 	if err != nil {
 		logger.Error("failed to create clientSet", zap.Error(err))
+		return &kubernetes.Clientset{}, err
 	}
 
 	return clientSet, nil
